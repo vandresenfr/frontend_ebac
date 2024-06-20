@@ -1,0 +1,3 @@
+const somar = require('./source/scripts/sum.js')
+
+console.log('Somar:', somar(12, 45, 67))
