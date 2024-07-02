@@ -1,17 +1,17 @@
 module.exports = function(grunt){
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        sass: {
-            dist: {
+        less: {
+            development: {
                 files: {
-                    'dist/styles/main.css': 'src/styles/main.scss'
+                    'dist/styles/main.css': 'src/styles/main.less'
                 }
             }
         },
         watch: {
             sass: {
-                files: ['src/styles/*.scss'],
-                tasks: ['sass:dist']
+                files: ['src/styles/*.less'],
+                tasks: ['less']
             }
         },
         uglify: {
@@ -23,10 +23,10 @@ module.exports = function(grunt){
         }
     })
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['uglify']);
+    grunt.registerTask('build', ['uglify', 'less']);
 }
