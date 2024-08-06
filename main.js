@@ -1,12 +1,26 @@
-function Animal(animal, nomeCientifico, raca, peso){
+function Animal(nome, animal, nomeCientifico, raca, peso){
+    this.nome = nome;
     this.animal = animal;
-    this.nomeCientifico = nomeCientifico
+    this.nomeCientifico = nomeCientifico;
     this.raca = raca;
     this.peso = peso;
+
 }
 
-const animal1 = new Animal('Gato', 'Felis catus', 'Persa', '4kg');
-const animal2 = new Animal('Cachorro', 'Canis familiaris', 'Pastor-Alemão', '35kg');
+function Gato(nome, raca, peso){
+    Animal.call(this, nome, 'Gato', 'Felis catus', raca, peso)
+}
 
-console.log(animal1);
-console.log(animal2);
+function Cachorro(nome, raca, peso){
+    Animal.call(this, nome, 'Cachorro', 'Canis familiaris', raca, peso)
+}
+
+const gatoDaMaria = new Gato('Felix', 'Persa', '5kg');
+const gatoDoLucas = new Gato('Floquinho', 'Siamês', '4kg')
+const cachorroDoJoao = new Cachorro('Rex', 'Pastor-Alemão', '35kg');
+const cachorroDaMarta = new Cachorro('Gudan', 'Husky Siberiano', '25kg');
+
+console.log(gatoDaMaria);
+console.log(gatoDoLucas);
+console.log(cachorroDoJoao);
+console.log(cachorroDaMarta);
